@@ -1,6 +1,5 @@
 const brasil = require('../models/brasil');
 
-
 module.exports = {
 
     async estadoByData(require,response){
@@ -29,7 +28,12 @@ module.exports = {
         const {estado} = require.query;
         const obitosAcumulado = await brasil.lastObitosAcumulado(estado)
         response.json({obitosAcumulado})
-    }
+    },
     
+   async CreateNewData(req,res){
+        const dados = req.body
+        const resul = brasil.CreateData(dados);
+        res.json({resul})
+    }
 
 }

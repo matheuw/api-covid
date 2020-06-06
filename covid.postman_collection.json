@@ -1,0 +1,102 @@
+{
+	"id": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
+	"name": "covid",
+	"description": "",
+	"order": [
+		"283223e4-cda9-4a43-ec3a-016c89d13be3",
+		"cc3ca40b-2bd2-6308-a4bc-f19c127fb1ae",
+		"c67fb062-f955-9056-7b6e-2fd3c9b77f54"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1591295776024,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "283223e4-cda9-4a43-ec3a-016c89d13be3",
+			"headers": "",
+			"headerData": [],
+			"url": "",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
+			"data": null,
+			"dataMode": "params",
+			"name": "get EstadoByData",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1591295795003,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c67fb062-f955-9056-7b6e-2fd3c9b77f54",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3333/covid",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Cadastra novos casos",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1591469011153,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\r\n      \"regiao\":\"Nordeste\",\r\n      \"estado\":\"RN\",\r\n      \"municipio\":\"Natal\",\r\n      \"data\":\"2020-06-06\",\r\n      \"semanaEpi\":25,\r\n      \"populacaoTCU2019\":884122,\r\n      \"casosAcumulado\":3497,\r\n      \"casosNovos\":1,\r\n      \"obitosAcumulado\":126,\r\n      \"obitosNovos\":0\r\n   \r\n}"
+		},
+		{
+			"id": "cc3ca40b-2bd2-6308-a4bc-f19c127fb1ae",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3333/covid/casos/estado?estado=RN",
+			"queryParams": [
+				{
+					"key": "estado",
+					"value": "RN",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
+			"data": null,
+			"dataMode": "params",
+			"name": "get ultimo casos aculmulados",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1591369895184,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

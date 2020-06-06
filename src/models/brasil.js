@@ -65,6 +65,67 @@ const lastObitosAcumulado = async function lastObitosAcumulado(estado){
     return obitosAcumulado;
 }
 
+ const CreateData =  async function CreateData(dados){
+
+    const {regiao,estado,municipio,data,semanaEpi,populacaoTCU2019,casosAcumulado,casosNovos,obitosAcumulado,obitosNovos} = dados;
+
+    brasil.create({
+        regiao: regiao,
+        estado: estado,
+        municipio: municipio,
+        data: data,
+        semanaEpi: semanaEpi,
+        populacaoTCU2019: populacaoTCU2019,
+        casosAcumulado: casosAcumulado,
+        casosNovos: casosNovos,
+        obitosAcumulado: obitosAcumulado,
+        obitosNovos: obitosNovos
+    },async function (err, small) {
+        if (err) return handleError(err);
+        if (regiao === "Brasil"){
+        const result = await brasil.findOne({
+            "estado": estado,
+            data:{$lte:data}
+        }).sort({
+            data: 'desc'
+        })
+        brasil.create({
+            regiao: regiao,
+            estado: "",
+            municipio: "",
+            data: data,
+            semanaEpi: semanaEpi,
+            populacaoTCU2019: populacaoTCU2019,
+            casosAcumulado: result.casosAcumulado + casosAcumulado,
+            casosNovos: result.casosNovos + casosNovos,
+            obitosAcumulado: result.obitosAcumulado + obitosAcumulado,
+            obitosNovos: result.obitosNovos + obitosNovos
+        })
+        const resultBrasil = await brasil.findOne({
+            "regiao": "Brasil",
+            data:{$lte:data}
+        }).sort({
+            data: 'desc'
+        })
+        brasil.create({
+            regiao: "Brasil",
+            estado: "",
+            municipio: "",
+            data: data,
+            semanaEpi: semanaEpi,
+            populacaoTCU2019: resultBrasil.populacaoTCU2019,
+            casosAcumulado: resultBrasil.casosAcumulado + casosAcumulado,
+            casosNovos: resultBrasil.casosNovos + casosNovos,
+            obitosAcumulado: resultBrasil.obitosAcumulado + obitosAcumulado,
+            obitosNovos: resultBrasil.obitosNovos + obitosNovos
+        })
+    }
+        return small;
+    });
+    return "Cadastrado com sucesso";
+} 
+
+
 module.exports = {
     findOne,
     count,
@@ -72,5 +133,6 @@ module.exports = {
     executeDbCommand,
     find,
     lastCasosAcumulado,
-   lastObitosAcumulado
+   lastObitosAcumulado,
+   CreateData
 }
