@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
-
+require('dotenv').config();
 
 try {
      console.log('Connecting to DB');
-      mongoose.connect('mongodb+srv://covid:covid19@cluster0-jcd2p.mongodb.net/covid?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+      mongoose.connect(process.env.DB_MONGODB, {useNewUrlParser: true, useUnifiedTopology: true})
  } catch (error) {
      console.log('mongoose connection error', error);
  }

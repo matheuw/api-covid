@@ -4,10 +4,6 @@ module.exports = {
 
     async estadoByData(require,response){
         const {estado,datainicial, datafinal} = require.query;
-        console.log(estado);
-        console.log(new Date(datainicial).toISOString());
-        console.log(new Date(datafinal).toISOString());
-      
        response.json(await brasil.find({
            
            estado:estado,
