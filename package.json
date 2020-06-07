@@ -1,0 +1,28 @@
+{
+  "name": "api-covid",
+  "version": "1.0.0",
+  "description": "Api para acesso a informações de casos e obitos de covid",
+  "main": "src/index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.8",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.17",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheuw/api-covid.git"
+  },
+  "author": "Matheus Paulino Pinheiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheuw/api-covid/issues"
+  },
+  "homepage": "https://github.com/matheuw/api-covid#readme"
+}
