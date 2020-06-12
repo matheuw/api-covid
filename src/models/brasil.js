@@ -114,8 +114,35 @@ const lastObitosAcumulado = async function lastObitosAcumulado(estado){
         return small;
     });
     return "Cadastrado com sucesso";
-} 
+}
 
+const UpdateDate = async function UpdateDate(id,dados){
+    const {regiao,estado,municipio,data,semanaEpi,populacaoTCU2019,casosAcumulado,casosNovos,obitosAcumulado,obitosNovos} = dados;
+    brasil.where({_id: id}).updateOne({
+        regiao: regiao,
+        estado: estado,
+        municipio: municipio,
+        data: data,
+        semanaEpi: semanaEpi,
+        populacaoTCU2019: populacaoTCU2019,
+        casosAcumulado: casosAcumulado,
+        casosNovos: casosNovos,
+        obitosAcumulado: obitosAcumulado,
+        obitosNovos: obitosNovos
+    },async function (err, small) {
+        if (err) return console.log(err);
+        return "Editado com sucesso";
+    })
+
+
+}
+const DeleteDate = async function DeleteDate(id){
+    brasil.findByIdAndDelete(id,
+        async function (err, small) {
+            if (err) return console.log(err);
+            return "Deletado com sucesso";
+        })
+}
 
 module.exports = {
     findOne,
@@ -124,5 +151,7 @@ module.exports = {
     find,
     lastCasosAcumulado,
    lastObitosAcumulado,
-   CreateData
+   CreateData,
+   UpdateDate,
+   DeleteDate
 }

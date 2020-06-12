@@ -30,6 +30,20 @@ module.exports = {
         const dados = req.body
         const resul = brasil.CreateData(dados);
         res.json({resul})
+    },
+
+    async UpdateDate(req,res){
+        const id = req.params.id;
+        const dados = req.body;
+        const result = brasil.UpdateDate(id,dados);
+        res.json({result})
+    },
+
+    async DeleteDate(req,res){
+        const id = req.params.id;
+        const resul = brasil.DeleteDate(id);
+        res.json({resul}) 
     }
 
+    
 }
