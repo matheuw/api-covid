@@ -1,102 +1,202 @@
 {
-	"id": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
-	"name": "covid",
-	"description": "",
-	"order": [
-		"283223e4-cda9-4a43-ec3a-016c89d13be3",
-		"cc3ca40b-2bd2-6308-a4bc-f19c127fb1ae",
-		"c67fb062-f955-9056-7b6e-2fd3c9b77f54"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1591295776024,
-	"owner": 0,
-	"public": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "covid",
+		"_postman_id": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "283223e4-cda9-4a43-ec3a-016c89d13be3",
-			"headers": "",
-			"headerData": [],
-			"url": "",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
-			"data": null,
-			"dataMode": "params",
 			"name": "get EstadoByData",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1591295795003,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
+			"request": {
+				"url": {
+					"raw": "http://localhost:3333/covid/estado?estado=RN&datainicial=2020-01-01&datafinal=2020-05-12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"covid",
+						"estado"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "RN",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "datainicial",
+							"value": "2020-01-01",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "datafinal",
+							"value": "2020-05-12",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		},
 		{
-			"id": "c67fb062-f955-9056-7b6e-2fd3c9b77f54",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3333/covid",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Cadastra novos casos",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1591469011153,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\r\n\r\n      \"regiao\":\"Nordeste\",\r\n      \"estado\":\"RN\",\r\n      \"municipio\":\"Natal\",\r\n      \"data\":\"2020-06-06\",\r\n      \"semanaEpi\":25,\r\n      \"populacaoTCU2019\":884122,\r\n      \"casosAcumulado\":3497,\r\n      \"casosNovos\":1,\r\n      \"obitosAcumulado\":126,\r\n      \"obitosNovos\":0\r\n   \r\n}"
-		},
-		{
-			"id": "cc3ca40b-2bd2-6308-a4bc-f19c127fb1ae",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3333/covid/casos/estado?estado=RN",
-			"queryParams": [
-				{
-					"key": "estado",
-					"value": "RN",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				}
-			],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "b67988dd-121c-e5d3-5fbb-fd2125e303e2",
-			"data": null,
-			"dataMode": "params",
 			"name": "get ultimo casos aculmulados",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1591369895184,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
+			"request": {
+				"url": {
+					"raw": "http://localhost:3333/covid/casos/estado?estado=RN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"covid",
+						"casos",
+						"estado"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "RN",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra novos casos",
+			"request": {
+				"url": "http://localhost:3333/covid",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n      \"regiao\":\"Nordeste\",\r\n      \"estado\":\"RN\",\r\n      \"municipio\":\"Natal\",\r\n      \"data\":\"2020-06-06\",\r\n      \"semanaEpi\":25,\r\n      \"populacaoTCU2019\":884122,\r\n      \"casosAcumulado\":3497,\r\n      \"casosNovos\":1,\r\n      \"obitosAcumulado\":126,\r\n      \"obitosNovos\":0\r\n   \r\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "42f1ebc4-5b62-4b6d-a00b-35f312b1b391",
+					"name": "Cadastra novos casos",
+					"originalRequest": {
+						"url": "http://localhost:3333/covid",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n      \"regiao\":\"Nordeste\",\r\n      \"estado\":\"RN\",\r\n      \"municipio\":\"Natal\",\r\n      \"data\":\"2020-06-06\",\r\n      \"semanaEpi\":25,\r\n      \"populacaoTCU2019\":884122,\r\n      \"casosAcumulado\":3497,\r\n      \"casosNovos\":1,\r\n      \"obitosAcumulado\":126,\r\n      \"obitosNovos\":0\r\n   \r\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "12",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 06 Jun 2020 18:28:35 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "etag",
+							"key": "etag",
+							"value": "W/\"c-4lin7S6folTZGqhM+Ge7wiVd0TM\"",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"name": "x-powered-by",
+							"key": "x-powered-by",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 33,
+					"body": "{\n    \"resul\": \"Cadastrado com sucesso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "put dados covid",
+			"request": {
+				"url": "http://localhost:3333/covid/update/5ed9aea52e500b33cca7c351",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"_id\":\"5ed9aea52e500b33cca7c351\",\n  \"regiao\": \"Brasil\",\n  \"estado\": \"\",\n  \"municipio\": \"\",\n  \"data\":\"2020-02-26\",\n  \"semanaEpi\": 9,\n  \"populacaoTCU2019\": 210147123,\n  \"casosAcumulado\": 1,\n  \"casosNovos\": 0,\n  \"obitosAcumulado\": 0,\n  \"obitosNovos\": \"0\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta por id",
+			"request": {
+				"url": "http://localhost:3333/covid/delete/5ed9aea52e500b33cca7c6b4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }

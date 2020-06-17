@@ -46,9 +46,27 @@ const lastCasosAcumulado = async function lastSemanaEpi(estado){
     })
     return casosAcumulado;
 }
+const lastCasosAcumuladobyCity = async function lastCasosAcumuladobyCity(city){
+    const {casosAcumulado} = await brasil.findOne({
+        "municipio": city,
+        data:{$lte:moment().format()}
+    }).sort({
+        data: 'desc'
+    })
+    return casosAcumulado;
+}
 const lastObitosAcumulado = async function lastObitosAcumulado(estado){
     const {obitosAcumulado} = await brasil.findOne({
         "estado": estado,
+        data:{$lte:moment().format()}
+    }).sort({
+        data: 'desc'
+    })
+    return obitosAcumulado;
+}
+const lastObitosAcumuladobyCity = async function lastObitosAcumuladobyCity(city){
+    const {obitosAcumulado} = await brasil.findOne({
+        "municipio": city,
         data:{$lte:moment().format()}
     }).sort({
         data: 'desc'
@@ -59,7 +77,7 @@ const lastObitosAcumulado = async function lastObitosAcumulado(estado){
  const CreateData =  async function CreateData(dados){
 
     const {regiao,estado,municipio,data,semanaEpi,populacaoTCU2019,casosAcumulado,casosNovos,obitosAcumulado,obitosNovos} = dados;
-
+    
     brasil.create({
         regiao: regiao,
         estado: estado,
@@ -131,17 +149,16 @@ const UpdateDate = async function UpdateDate(id,dados){
         obitosNovos: obitosNovos
     },async function (err, small) {
         if (err) return console.log(err);
-        return "Editado com sucesso";
     })
-
+    return "Atualizado com sucesso";
 
 }
 const DeleteDate = async function DeleteDate(id){
     brasil.findByIdAndDelete(id,
         async function (err, small) {
-            if (err) return console.log(err);
-            return "Deletado com sucesso";
+            if (err) return err;
         })
+    return "Deletado com sucesso";
 }
 
 module.exports = {
@@ -153,5 +170,7 @@ module.exports = {
    lastObitosAcumulado,
    CreateData,
    UpdateDate,
-   DeleteDate
+   DeleteDate,
+   lastCasosAcumuladobyCity,
+   lastObitosAcumuladobyCity
 }
