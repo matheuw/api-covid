@@ -10,7 +10,8 @@
     "moment": "^2.26.0",
     "mongodb": "^3.5.8",
     "mongoose": "^5.9.17",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "bl": ">=2.2.1"
   },
   "devDependencies": {},
   "scripts": {

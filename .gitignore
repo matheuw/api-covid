@@ -24,3 +24,35 @@ src/web-site/cadastro.html
 src/web-site/index.html
 src/web-site
 covid.postman_collection.json
+documento PDF.pdf
+documento PDF.odt
+node_modules/bl/.jshintrc
+node_modules/bl/.travis.yml
+node_modules/bl/bl.js
+node_modules/bl/LICENSE.md
+node_modules/bl/package.json
+node_modules/bl/README.md
+node_modules/bl/test/indexOf.js
+node_modules/bl/test/test.js
+node_modules/readable-stream/.travis.yml
+node_modules/readable-stream/duplex-browser.js
+node_modules/readable-stream/duplex.js
+node_modules/readable-stream/package.json
+node_modules/readable-stream/passthrough.js
+node_modules/readable-stream/readable-browser.js
+node_modules/readable-stream/readable.js
+node_modules/readable-stream/README.md
+node_modules/readable-stream/transform.js
+node_modules/readable-stream/writable-browser.js
+node_modules/readable-stream/writable.js
+node_modules/readable-stream/doc/wg-meetings/2015-01-30.md
+node_modules/readable-stream/lib/_stream_duplex.js
+node_modules/readable-stream/lib/_stream_passthrough.js
+node_modules/readable-stream/lib/_stream_readable.js
+node_modules/readable-stream/lib/_stream_transform.js
+node_modules/readable-stream/lib/_stream_writable.js
+node_modules/readable-stream/lib/internal/streams/BufferList.js
+node_modules/readable-stream/lib/internal/streams/destroy.js
+node_modules/string_decoder/.travis.yml
+node_modules/string_decoder/package.json
+node_modules/*
