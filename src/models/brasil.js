@@ -2,8 +2,9 @@
 
 const mongoose = require('mongoose');
 const moment = require('moment');
-const collection = 'brasils';
-
+const { Int32, Double } = require('mongodb');
+const collectionCovid = 'brasils';
+const collectionMunicipios = 'municipios';
 const covidSchema = new mongoose.Schema({
     regiao: String,
     estado: String,
@@ -16,15 +17,26 @@ const covidSchema = new mongoose.Schema({
      obitosAcumulado: Number,
      obitosNovos: Number
 })
+const municipiosSchema = new mongoose.Schema({
+     codigo_ibge: Number,
+     nome: String,
+     capital: Number,
+     codigo_uf: Number,
+     coordenadas: Array
+})
 
-const brasil = mongoose.model(collection, covidSchema);
-
+const brasil = mongoose.model(collectionCovid, covidSchema);
+const municipio = mongoose.model(collectionMunicipios, municipiosSchema);
 const findOne = async function findOne() {
     const docs = await brasil.findOne();
     return docs;
 }
 const find = async function find(query) {
     const docs = await brasil.find(query);
+    return docs;
+}
+const findMunicipio = async function find(query) {
+    const docs = await municipio.find(query);
     return docs;
 }
 
@@ -124,5 +136,6 @@ module.exports = {
     find,
     lastCasosAcumulado,
    lastObitosAcumulado,
-   CreateData
+   CreateData,
+   findMunicipio
 }
